@@ -1,0 +1,4 @@
+dev: true
+sqluser: null
+world: 'world'
+spawn: '0;10;0'

@@ -1,0 +1,13 @@
+name: EGTools
+author: iTrooz_
+description: Utilités pour le EntaGames
+version: 1.2.0
+main: fr.entasia.egtools.Main
+depend: [Libraries]
+commands:
+  egtools:
+    aliases: [egtool]
+  spawn:
+
+  eco:
+    aliases: [economy]
