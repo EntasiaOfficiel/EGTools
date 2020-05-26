@@ -1,11 +1,11 @@
 package fr.entasia.egtools;
 
+import fr.entasia.apis.sql.SQLConnection;
 import fr.entasia.egtools.commands.EGTools;
 import fr.entasia.egtools.commands.Eco;
 import fr.entasia.egtools.commands.Spawn;
 import fr.entasia.egtools.listeners.OtherListeners;
 import fr.entasia.egtools.listeners.ProtectListeners;
-import fr.entasia.apis.sql.SQLConnection;
 import fr.entasia.egtools.utils.Task5m;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -45,7 +45,8 @@ public class Main extends JavaPlugin{
 			new Task5m().runTaskTimerAsynchronously(this, 1000, 6000); // 5 minutes = 300 secondes = 6000 ticks
 
 			getLogger().info("Plugin activé !");
-		}catch(Exception e){
+		}catch(Throwable e){
+			e.printStackTrace();
 			getLogger().info("LE SERVEUR VA S'ARRETER");
 			Bukkit.getServer().shutdown();
 		}
