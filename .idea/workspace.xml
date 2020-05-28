@@ -16,12 +16,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="309842c3-bc9a-4db2-83c4-44b2a43e0e62" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/fr/entasia/egtools/commands/BuildToggle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ressources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ressources/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/entasia/egtools/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/entasia/egtools/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/entasia/egtools/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/entasia/egtools/Utils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/entasia/egtools/listeners/OtherListeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/entasia/egtools/listeners/OtherListeners.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/entasia/egtools/listeners/ProtectListeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/entasia/egtools/listeners/ProtectListeners.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,7 +52,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../HubTools" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../FFARush" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -257,12 +252,12 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="808" y="409" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040/1920.26.1680.1010@0.0.1920.1040" timestamp="1588079398216" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1590660829518">
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1590662345423">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1680.1010@0.0.1920.1040" timestamp="1585645585182" />
     <state x="2568" y="266" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1680.1010@1920.0.1680.1010" timestamp="1582824729037" />
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.26.1680.1010@0.0.1920.1040" timestamp="1590660829518" />
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.26.1680.1010@0.0.1920.1040" timestamp="1590662345423" />
     <state x="440" y="94" key="SettingsEditor" timestamp="1590661483454">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

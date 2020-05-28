@@ -16,7 +16,6 @@ public class ProtectListeners implements Listener {
 	public static void a(BlockPlaceEvent e) {
 		if(!(Utils.buildToggle.contains(e.getPlayer().getName())&&e.getPlayer().getGameMode()==GameMode.CREATIVE)){
 			e.setCancelled(true);
-			e.setBuild(false);
 		}
 	}
 
