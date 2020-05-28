@@ -11,3 +11,6 @@ commands:
 
   eco:
     aliases: [economy]
+
+  buildtoggle:
+    aliases: [bt]

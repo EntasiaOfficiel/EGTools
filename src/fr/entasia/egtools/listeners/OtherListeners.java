@@ -14,6 +14,11 @@ import org.bukkit.event.player.PlayerJoinEvent;
 public class OtherListeners implements Listener {
 
 	@EventHandler(priority = EventPriority.LOWEST)
+	public static void onQuit(PlayerJoinEvent e){
+		Utils.buildToggle.remove(e.getPlayer().getName());
+	}
+
+	@EventHandler(priority = EventPriority.LOWEST)
 	public static void onJoin(PlayerJoinEvent e){
 		e.getPlayer().setMaximumNoDamageTicks(17);
 		Utils.tpSpawn(e.getPlayer());
@@ -23,7 +28,7 @@ public class OtherListeners implements Listener {
 				c.enable(e.getPlayer());
 			}
 		} else Utils.actualCosm.put(e.getPlayer().getUniqueId(), null);
-		if (Main.sqlConnection.fastUpdate("INSERT IGNORE INTO entagames (uuid) VALUES (?)", e.getPlayer().getUniqueId()) == 1) {
+		if (Main.sqlConnection.fastUpdate("INSERT IGNORE INTO entagames (uuid) VALUES (?)", e.getPlayer().getUniqueId()) == -1) {
 			e.getPlayer().kickPlayer("§cErreurs lors du chargement de tes profils !");
 		}
 	}
@@ -34,15 +39,17 @@ public class OtherListeners implements Listener {
 			if(e.getItem() != null&&e.getItem().hasItemMeta()&&e.getItem().getItemMeta().hasDisplayName()){
 				e.setCancelled(true);
 				switch(e.getItem().getItemMeta().getDisplayName()) {
-					case "§6Enta§cGames":
+					case "§6Enta§cGames":{
 						InvsManager.gMenuOpen(e.getPlayer());
 						break;
-					case "§cRetour au spawn EntaGames":
+					}
+					case "§cRetour au spawn EntaGames":{
 						Utils.tpSpawn(e.getPlayer());
 						break;
-
-					default:
+					}
+					default:{
 						e.setCancelled(false);
+					}
 				}
 			}
 		}

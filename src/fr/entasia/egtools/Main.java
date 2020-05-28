@@ -1,6 +1,7 @@
 package fr.entasia.egtools;
 
 import fr.entasia.apis.sql.SQLConnection;
+import fr.entasia.egtools.commands.BuildToggle;
 import fr.entasia.egtools.commands.EGTools;
 import fr.entasia.egtools.commands.Eco;
 import fr.entasia.egtools.commands.Spawn;
@@ -38,6 +39,7 @@ public class Main extends JavaPlugin{
 			getCommand("egtools").setExecutor(new EGTools());
 			getCommand("spawn").setExecutor(new Spawn());
 			getCommand("eco").setExecutor(new Eco());
+			getCommand("buildtoggle").setExecutor(new BuildToggle());
 
 			getServer().getPluginManager().registerEvents(new OtherListeners(), this);
 			getServer().getPluginManager().registerEvents(new ProtectListeners(), this);

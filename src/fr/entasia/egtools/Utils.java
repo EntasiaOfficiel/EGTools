@@ -14,6 +14,7 @@ import org.bukkit.potion.PotionEffect;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -22,7 +23,9 @@ public class Utils {
 
 	public static World world;
 	public static Location spawn;
+
 	public static HashMap<UUID, Cosmetique> actualCosm = new HashMap<>();
+	public static ArrayList<String> buildToggle = new ArrayList<>();
 
 	public static void tpSpawn(Player p) {
 		reset(p);
@@ -44,7 +47,6 @@ public class Utils {
 //		Bukkit.broadcastMessage("DEBUG 2");
 
 		for(PotionEffect pe : p.getActivePotionEffects()){
-			Bukkit.broadcastMessage("Removing "+pe.getType());
 			p.removePotionEffect(pe.getType());
 		}
 		p.setGlowing(false);
