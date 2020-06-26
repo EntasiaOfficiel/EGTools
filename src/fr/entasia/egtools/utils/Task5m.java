@@ -1,6 +1,6 @@
 package fr.entasia.egtools.utils;
 
-import fr.entasia.apis.ServerUtils;
+import fr.entasia.apis.utils.ServerUtils;
 import fr.entasia.egtools.Utils;
 import org.bukkit.scheduler.BukkitRunnable;
 
