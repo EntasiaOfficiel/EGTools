@@ -64,6 +64,7 @@ public class OtherListeners implements Listener {
 						e.getPlayer().sendMessage("§7[§bEnta§fsia§7] Vous ne pouvez pas avoir de pet au Loup Garou, il a été désactivé");
 						PetsUtils.removePet(cp);
 					}
+
 				}
 				if(cp.hasParticle()){
 					cp.particle=null;

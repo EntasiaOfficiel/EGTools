@@ -1,5 +1,6 @@
 package fr.entasia.egtools.listeners;
 
+import fr.entasia.egtools.Main;
 import fr.entasia.egtools.Utils;
 import org.bukkit.GameMode;
 import org.bukkit.event.EventHandler;
@@ -38,6 +39,7 @@ public class ProtectListeners implements Listener {
 	@EventHandler
 	public static void a(PlayerInteractEvent e){
 		if(e.getAction().equals(Action.PHYSICAL)) return;
+		if(e.getClickedBlock().getWorld() != Utils.world) return;
 		if(!Utils.buildToggle.contains(e.getPlayer().getName())){
 			e.setCancelled(true);
 		}
