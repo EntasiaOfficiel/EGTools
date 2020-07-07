@@ -1,6 +1,5 @@
 package fr.entasia.egtools;
 
-import fr.entasia.egtools.utils.Cosmetique;
 import fr.entasia.egtools.utils.MoneyUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -24,7 +23,6 @@ public class Utils {
 	public static World world;
 	public static Location spawn;
 
-	public static HashMap<UUID, Cosmetique> actualCosm = new HashMap<>();
 	public static ArrayList<String> buildToggle = new ArrayList<>();
 
 	public static void tpSpawn(Player p) {
@@ -70,27 +68,6 @@ public class Utils {
 			}
 			return true;
 		}catch(SQLException e){
-			e.printStackTrace();
-			Main.sqlConnection.broadcastError();
-		}
-		return false;
-	}
-
-
-	public static boolean haveCosm(int id, UUID uuid){
-		try {
-			Main.sqlConnection.checkConnect();
-			PreparedStatement ps;
-
-			ps= Main.sqlConnection.connection.prepareStatement("SELECT cosm-id FROM eg-cosmetique where uuid=?"); // A STOCKER EN CACHE !!!
-			ps.setString(1, uuid.toString());
-			ResultSet rs = ps.executeQuery();
-			while(rs.next()){
-				if(rs.getInt(1)==id){
-					return true;
-				}
-			}
-		} catch (SQLException e) {
 			e.printStackTrace();
 			Main.sqlConnection.broadcastError();
 		}

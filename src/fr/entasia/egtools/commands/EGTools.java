@@ -28,7 +28,7 @@ public class EGTools implements CommandExecutor {
 					Main.loadConfig();
 					p.sendMessage("Configuration rechargée !");
 				} else if(arg[0].equalsIgnoreCase("test")){
-					InvsManager.cosmMenuOpen(p);
+					fr.entasia.cosmetiques.utils.InvsManager.cosmMenuOpen(p);
 				}
 			}else p.sendMessage("§cArgument incorrect");
 		}else p.sendMessage("§bEnta§7sia §8» §cTu n'as pas accès à cette commande !");
