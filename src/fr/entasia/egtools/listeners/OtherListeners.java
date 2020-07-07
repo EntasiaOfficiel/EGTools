@@ -1,6 +1,7 @@
 package fr.entasia.egtools.listeners;
 
 import fr.entasia.cosmetiques.utils.CosmeticPlayer;
+import fr.entasia.cosmetiques.utils.particles.Particles;
 import fr.entasia.cosmetiques.utils.pets.CurrentPet;
 import fr.entasia.cosmetiques.utils.pets.Pets;
 import fr.entasia.cosmetiques.utils.pets.PetsUtils;
@@ -37,12 +38,7 @@ public class OtherListeners implements Listener {
 					CurrentPet pet = cp.pet;
 					Pets pets = pet.type;
 					e.getPlayer().sendMessage("§7[§bEnta§fsia§7] Vous ne pouvez pas avoir de pet au ffarush, il a été désactivé");
-					cp.pet = null;
-					pet.origin.remove();
-					for (ASData asd : pet.armor_stands) {
-						asd.ent.remove();
-
-					}
+					PetsUtils.removePet(cp);
 				}
 			}
 
@@ -54,15 +50,24 @@ public class OtherListeners implements Listener {
 					Pets pets = pet.type;
 					if(!pets.safe){
 						e.getPlayer().sendMessage("§7[§bEnta§fsia§7] Ce pet est interdit au miniGta, il a été désactivé");
-						cp.pet = null;
-						pet.origin.remove();
-						Iterator var8 = pet.armor_stands.iterator();
-
-						while(var8.hasNext()) {
-							ASData asd = (ASData)var8.next();
-							asd.ent.remove();
-						}
+						PetsUtils.removePet(cp);
 					}
+				}
+			}
+		} else if(w.getName().equalsIgnoreCase("loup-garou")){
+			if (cp != null) {
+				cp.p = p;
+				if (cp.hasPet()) {
+					CurrentPet pet = cp.pet;
+					Pets pets = pet.type;
+					if(!pets.safe){
+						e.getPlayer().sendMessage("§7[§bEnta§fsia§7] Vous ne pouvez pas avoir de pet au Loup Garou, il a été désactivé");
+						PetsUtils.removePet(cp);
+					}
+				}
+				if(cp.hasParticle()){
+					cp.particle=null;
+					e.getPlayer().sendMessage("§7[§bEnta§fsia§7] Les particules sont interdites au Loup Garou, elle a été désactivée");
 				}
 			}
 		}
