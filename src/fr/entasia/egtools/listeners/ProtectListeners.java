@@ -39,7 +39,7 @@ public class ProtectListeners implements Listener {
 	@EventHandler
 	public static void a(PlayerInteractEvent e){
 		if(e.getAction().equals(Action.PHYSICAL)) return;
-		if(e.getClickedBlock().getWorld() != Utils.world) return;
+		if(!e.getPlayer().getWorld().getName().equalsIgnoreCase("spawn")) return;
 		if(!Utils.buildToggle.contains(e.getPlayer().getName())){
 			e.setCancelled(true);
 		}

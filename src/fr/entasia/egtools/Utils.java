@@ -37,12 +37,13 @@ public class Utils {
 		meta.setDisplayName("§bCosmétiques");
 		item.setItemMeta(meta);
 		p.getInventory().setItem(8, item);
+
+		p.setItemOnCursor(null);
 	}
 
 	public static void reset(Player p) {
 		p.getInventory().clear();
 
-//		Bukkit.broadcastMessage("DEBUG 2");
 
 		for(PotionEffect pe : p.getActivePotionEffects()){
 			p.removePotionEffect(pe.getType());
