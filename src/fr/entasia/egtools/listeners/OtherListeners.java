@@ -59,7 +59,6 @@ public class OtherListeners implements Listener {
 				cp.p = p;
 				if (cp.hasPet()) {
 					CurrentPet pet = cp.pet;
-					Pets pets = pet.type;
 					e.getPlayer().sendMessage("§7[§bEnta§fsia§7] Vous ne pouvez pas avoir de pet au Loup Garou, il a été désactivé");
 					PetsUtils.removePet(cp);
 

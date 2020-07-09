@@ -3,6 +3,7 @@ package fr.entasia.egtools.utils;
 import fr.entasia.apis.menus.MenuClickEvent;
 import fr.entasia.apis.menus.MenuCreator;
 import fr.entasia.egtools.Utils;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
@@ -10,6 +11,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -28,6 +30,9 @@ public class InvsManager {
 					break;
 				case GOLD_BARDING:
 					e.player.performCommand("minigta join");
+					break;
+				case IRON_HOE:
+					e.player.teleport(Bukkit.getWorld("loup-garou").getSpawnLocation());
 					break;
 				default:
 					e.player.sendMessage("§cCette option n'est pas disponible pour le moment !");
@@ -85,12 +90,22 @@ public class InvsManager {
 		meta.setDisplayName("§7MiniGTA");
 		List<String> list = new ArrayList<>();
 		list.add("§6Le cèlebre jeu GTA déja porté dans Minecraft, Maintenant en mini jeu !");
-		list.add("§6Deux équipes. 5 minutes. Des armes.");
+		list.add("§6Deux équipes. 8 minutes. Des armes.");
 		list.add(" ");
 		list.add("§9Développé par Stargeyt ! Merci à lui");
 		meta.setLore(list);
 		item.setItemMeta(meta);
 		inv.setItem(23, item);
+
+
+		LocalDateTime now = LocalDateTime.now();
+		if(now.getMonthValue() >= 8 || now.getYear()>=2021 || p.getDisplayName().equalsIgnoreCase("Stargeyt") || p.getDisplayName().equalsIgnoreCase("iTrooz_")){
+			item = new ItemStack(Material.IRON_HOE);
+			meta = item.getItemMeta();
+			meta.setDisplayName("§7Loups Garou");
+			item.setItemMeta(meta);
+			inv.setItem(21,item);
+		}
 
 		p.openInventory(inv);
 	}
