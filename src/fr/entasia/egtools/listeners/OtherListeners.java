@@ -1,15 +1,12 @@
 package fr.entasia.egtools.listeners;
 
 import fr.entasia.cosmetiques.utils.CosmeticPlayer;
-import fr.entasia.cosmetiques.utils.particles.Particles;
 import fr.entasia.cosmetiques.utils.pets.CurrentPet;
-import fr.entasia.cosmetiques.utils.pets.Pets;
+import fr.entasia.cosmetiques.utils.pets.Pet;
 import fr.entasia.cosmetiques.utils.pets.PetsUtils;
-import fr.entasia.cosmetiques.utils.pets.as.ASData;
 import fr.entasia.egtools.Main;
 import fr.entasia.egtools.Utils;
 import fr.entasia.egtools.utils.InvsManager;
-import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -30,13 +27,11 @@ public class OtherListeners implements Listener {
 	public static void changeWorld(PlayerChangedWorldEvent e){
 		Player p = e.getPlayer();
 		World w = p.getWorld();
-		CosmeticPlayer cp = fr.entasia.cosmetiques.utils.Utils.playerCache.get(p.getUniqueId());
+		CosmeticPlayer cp = fr.entasia.cosmetiques.utils.CosmAPI.playerCache.get(p.getUniqueId());
 		if(w.getName().equalsIgnoreCase("ffarush")){
 			if (cp != null) {
 				cp.p = p;
 				if (cp.hasPet()) {
-					CurrentPet pet = cp.pet;
-					Pets pets = pet.type;
 					e.getPlayer().sendMessage("§7[§bEnta§fsia§7] Vous ne pouvez pas avoir de pet au ffarush, il a été désactivé");
 					PetsUtils.removePet(cp);
 				}
@@ -47,7 +42,7 @@ public class OtherListeners implements Listener {
 				cp.p = p;
 				if (cp.hasPet()) {
 					CurrentPet pet = cp.pet;
-					Pets pets = pet.type;
+					Pet pets = pet.type;
 					if(!pets.safe){
 						e.getPlayer().sendMessage("§7[§bEnta§fsia§7] Ce pet est interdit au miniGta, il a été désactivé");
 						PetsUtils.removePet(cp);
@@ -58,7 +53,6 @@ public class OtherListeners implements Listener {
 			if (cp != null) {
 				cp.p = p;
 				if (cp.hasPet()) {
-					CurrentPet pet = cp.pet;
 					e.getPlayer().sendMessage("§7[§bEnta§fsia§7] Vous ne pouvez pas avoir de pet au Loup Garou, il a été désactivé");
 					PetsUtils.removePet(cp);
 
