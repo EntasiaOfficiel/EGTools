@@ -102,7 +102,7 @@ public class InvsManager {
 		if(now.getMonthValue() >= 8 || now.getYear()>=2021 || p.getDisplayName().equalsIgnoreCase("Stargeyt") || p.getDisplayName().equalsIgnoreCase("iTrooz_")){
 			item = new ItemStack(Material.IRON_HOE);
 			meta = item.getItemMeta();
-			meta.setDisplayName("§7Loups Garou");
+			meta.setDisplayName("§7Loup Garou");
 			item.setItemMeta(meta);
 			inv.setItem(21,item);
 		}
