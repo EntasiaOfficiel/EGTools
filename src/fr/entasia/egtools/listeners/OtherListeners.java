@@ -1,5 +1,6 @@
 package fr.entasia.egtools.listeners;
 
+import fr.entasia.cosmetiques.utils.CosmAPI;
 import fr.entasia.cosmetiques.utils.CosmeticPlayer;
 import fr.entasia.cosmetiques.utils.pets.CurrentPet;
 import fr.entasia.cosmetiques.utils.pets.Pet;
@@ -27,7 +28,7 @@ public class OtherListeners implements Listener {
 	public static void changeWorld(PlayerChangedWorldEvent e){
 		Player p = e.getPlayer();
 		World w = p.getWorld();
-		CosmeticPlayer cp = fr.entasia.cosmetiques.utils.CosmAPI.playerCache.get(p.getUniqueId());
+		CosmeticPlayer cp = CosmAPI.playerCache.get(p.getUniqueId());
 		if(w.getName().equalsIgnoreCase("ffarush")){
 			if (cp != null) {
 				cp.p = p;
@@ -95,10 +96,8 @@ public class OtherListeners implements Listener {
 						break;
 					}
                     case "§bCosmétiques":{
-                        LocalDateTime now = LocalDateTime.now();
-                        if(now.getMonthValue() >= 8 || now.getYear()>=2021 || e.getPlayer().getDisplayName().equalsIgnoreCase("Stargeyt") || e.getPlayer().getDisplayName().equalsIgnoreCase("iTrooz_")){
-                            fr.entasia.cosmetiques.utils.InvsManager.cosmMenuOpen(e.getPlayer());
-                        }
+                    	CosmAPI.openCosmMenu(e.getPlayer());
+                    	break;
                     }
 					default:{
 						e.setCancelled(false);

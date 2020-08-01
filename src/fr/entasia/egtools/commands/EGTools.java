@@ -23,16 +23,13 @@ public class EGTools implements CommandExecutor {
 					Main.main.getConfig().set("world", Utils.world.getName());
 					Main.main.saveConfig();
 					p.sendMessage("§bSpawn défini !");
-				}else if(arg[0].equalsIgnoreCase("reload")){
+				}else if(arg[0].equalsIgnoreCase("reload")) {
 					Main.main.reloadConfig();
 					Main.loadConfig();
 					p.sendMessage("Configuration rechargée !");
-				} else if(arg[0].equalsIgnoreCase("test")){
-					fr.entasia.cosmetiques.utils.InvsManager.cosmMenuOpen(p);
-				}
-			}else p.sendMessage("§cArgument incorrect");
+				}else p.sendMessage("§cArgument incorrect");
+			}else p.sendMessage("§cMet un argument !");
 		}else p.sendMessage("§bEnta§7sia §8» §cTu n'as pas accès à cette commande !");
-
 		return true;
 	}
 }
