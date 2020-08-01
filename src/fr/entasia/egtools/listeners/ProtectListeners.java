@@ -1,6 +1,5 @@
 package fr.entasia.egtools.listeners;
 
-import fr.entasia.egtools.Main;
 import fr.entasia.egtools.Utils;
 import org.bukkit.GameMode;
 import org.bukkit.event.EventHandler;

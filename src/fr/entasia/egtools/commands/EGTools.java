@@ -2,7 +2,6 @@ package fr.entasia.egtools.commands;
 
 import fr.entasia.egtools.Main;
 import fr.entasia.egtools.Utils;
-import fr.entasia.egtools.utils.InvsManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

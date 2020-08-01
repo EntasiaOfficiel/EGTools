@@ -17,10 +17,6 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.inventory.ItemStack;
-
-import java.time.LocalDateTime;
-import java.util.Iterator;
 
 public class OtherListeners implements Listener {
 
