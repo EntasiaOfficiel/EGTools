@@ -35,7 +35,7 @@ public class Utils {
 		item.setType(Material.COMMAND);
 		meta.setDisplayName("§bCosmétiques");
 		item.setItemMeta(meta);
-		p.getInventory().setItem(8, item);
+		p.getInventory().setItem(7, item);
 
 		p.setItemOnCursor(null);
 	}
