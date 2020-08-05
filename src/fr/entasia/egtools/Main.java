@@ -1,10 +1,7 @@
 package fr.entasia.egtools;
 
 import fr.entasia.apis.sql.SQLConnection;
-import fr.entasia.egtools.commands.BuildToggle;
-import fr.entasia.egtools.commands.EGTools;
-import fr.entasia.egtools.commands.Eco;
-import fr.entasia.egtools.commands.Spawn;
+import fr.entasia.egtools.commands.*;
 import fr.entasia.egtools.listeners.OtherListeners;
 import fr.entasia.egtools.listeners.ProtectListeners;
 import fr.entasia.egtools.utils.Task5m;
@@ -36,10 +33,11 @@ public class Main extends JavaPlugin{
 			enableDev = getConfig().getBoolean("dev", false);
 			if(getConfig().getString("sqluser")!=null)sqlConnection = new SQLConnection(getConfig().getString("sqluser"), "playerdata");
 
-			getCommand("egtools").setExecutor(new EGTools());
-			getCommand("spawn").setExecutor(new Spawn());
-			getCommand("eco").setExecutor(new Eco());
-			getCommand("buildtoggle").setExecutor(new BuildToggle());
+			getCommand("egtools").setExecutor(new EGToolsCmd());
+			getCommand("spawn").setExecutor(new SpawnCmd());
+			getCommand("money").setExecutor(new MoneyCmd());
+			getCommand("eco").setExecutor(new EcoCmd());
+			getCommand("buildtoggle").setExecutor(new BuildToggleCmd());
 
 			getServer().getPluginManager().registerEvents(new OtherListeners(), this);
 			getServer().getPluginManager().registerEvents(new ProtectListeners(), this);

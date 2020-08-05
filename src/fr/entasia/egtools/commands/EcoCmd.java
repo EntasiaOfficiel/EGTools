@@ -10,11 +10,11 @@ import org.bukkit.entity.Player;
 
 import java.util.UUID;
 
-public class Eco implements CommandExecutor {
+public class EcoCmd implements CommandExecutor {
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] arg){
-		if(sender.hasPermission("entasia.eco")){
+		if(sender.hasPermission("admin.eco")){
 			if(arg.length >= 2){
 				int money;
 				try{
@@ -34,7 +34,7 @@ public class Eco implements CommandExecutor {
 							sender.sendMessage("§cCe joueur n'est pas connecté ou n'existe pas !");
 							return true;
 						}else{
-							tuuid = UUID.fromString(target.getName());
+							tuuid = target.getUniqueId();
 							name = arg[2];
 						}
 					}else{

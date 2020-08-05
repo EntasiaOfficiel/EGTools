@@ -7,7 +7,10 @@ depend: [Libraries]
 commands:
   egtools:
     aliases: [egtool]
+
   spawn:
+
+  money:
 
   eco:
     aliases: [economy]
