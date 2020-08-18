@@ -8,17 +8,17 @@ import java.util.UUID;
 
 public class MoneyUtils {
 
-	public static HashMap<UUID, Integer> MoneyCache = new HashMap<>();
+	public static HashMap<UUID, Integer> moneyCache = new HashMap<>();
 
 	public static int getMoney(UUID uuid) {
-		int a = MoneyCache.getOrDefault(uuid, -1);
+		int a = moneyCache.getOrDefault(uuid, -1);
 		if(a==-1){
 			try{
 				Main.sqlConnection.checkConnect();
 				ResultSet rs = Main.sqlConnection.fastSelectUnsafe("SELECT money FROM entagames WHERE uuid = ?", uuid);
 				if(rs.next()){
 					a = rs.getInt(1);
-					MoneyCache.put(uuid, a);
+					moneyCache.put(uuid, a);
 					return a;
 				}
 			}catch(Exception e){
@@ -30,7 +30,7 @@ public class MoneyUtils {
 	}
 
 	public static void setMoney(UUID uuid, int coins){
-		MoneyCache.put(uuid, coins);
+		moneyCache.put(uuid, coins);
 //		SQLConnection.checkConnect();
 //		try{
 //			SQLConnection.connection.prepareStatement("update stats set eg_money=" + coins + " WHERE uuid = '"+ p.getUniqueId() +"'").execute();
@@ -40,10 +40,10 @@ public class MoneyUtils {
 	}
 
 	public static void addMoney(UUID uuid, int coins){
-		int a = MoneyCache.getOrDefault(uuid, -2);
+		int a = moneyCache.getOrDefault(uuid, -2);
 		if(a==-2)a = getMoney(uuid);
 		a+=coins;
-		MoneyCache.put(uuid, a);
+		moneyCache.put(uuid, a);
 //		SQLConnection.checkConnect();
 //		try{
 //			SQLConnection.connection.prepareStatement("update stats set eg_money=eg_money+" + coins + " WHERE uuid = '"+ p.getUniqueId() +"'").execute();

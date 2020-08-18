@@ -1,10 +1,7 @@
 package fr.entasia.egtools;
 
 import fr.entasia.egtools.utils.MoneyUtils;
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.World;
+import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -23,6 +20,10 @@ public class Utils {
 	public static Location spawn;
 
 	public static ArrayList<String> buildToggle = new ArrayList<>();
+
+	public static boolean canBuild(Player p){
+		return buildToggle.contains(p.getName())&&p.getGameMode()== GameMode.CREATIVE;
+	}
 
 	public static void tpSpawn(Player p) {
 		reset(p);
@@ -59,12 +60,12 @@ public class Utils {
 		try{
 			PreparedStatement ps;
 			Main.sqlConnection.checkConnect();
-			for(Map.Entry<UUID, Integer> e : new HashMap<>(MoneyUtils.MoneyCache).entrySet()){
+			for(Map.Entry<UUID, Integer> e : new HashMap<>(MoneyUtils.moneyCache).entrySet()){
 				ps = Main.sqlConnection.connection.prepareStatement("UPDATE entagames set money=? where uuid=?");
 				ps.setInt(1, e.getValue());
 				ps.setString(2, e.getKey().toString());
 				ps.execute();
-				if(Bukkit.getPlayer(e.getKey())==null)MoneyUtils.MoneyCache.remove(e.getKey());
+				if(Bukkit.getPlayer(e.getKey())==null)MoneyUtils.moneyCache.remove(e.getKey());
 			}
 			return true;
 		}catch(SQLException e){

@@ -16,37 +16,37 @@ public class ProtectListeners implements Listener {
 
 	@EventHandler(priority = EventPriority.LOWEST)
 	public static void a(BlockPlaceEvent e) {
-		if(!(Utils.buildToggle.contains(e.getPlayer().getName())&&e.getPlayer().getGameMode()==GameMode.CREATIVE)){
+		if(!Utils.canBuild(e.getPlayer())){
 			e.setCancelled(true);
 		}
 	}
 
 	@EventHandler(priority = EventPriority.LOWEST)
 	public static void a(BlockBreakEvent e) {
-		if(!(Utils.buildToggle.contains(e.getPlayer().getName())&&e.getPlayer().getGameMode()==GameMode.CREATIVE)){
+		if(!Utils.canBuild(e.getPlayer())){
 			e.setCancelled(true);
 		}
 	}
 
 	@EventHandler(priority = EventPriority.LOWEST)
 	public static void a(PlayerDropItemEvent e) {
-		if(!(Utils.buildToggle.contains(e.getPlayer().getName())&&e.getPlayer().getGameMode()==GameMode.CREATIVE)){
+		if(!Utils.canBuild(e.getPlayer())){
 			e.setCancelled(true);
 		}
 	}
 
-	@EventHandler
-	public static void a(PlayerInteractEvent e){
-		if(e.getAction().equals(Action.PHYSICAL)) return;
-		if(!e.getPlayer().getWorld().getName().equalsIgnoreCase("spawn")) return;
-		if(!Utils.buildToggle.contains(e.getPlayer().getName())){
-			e.setCancelled(true);
-		}
-	}
+//	@EventHandler(priority = EventPriority.LOWEST)
+//	public static void a(PlayerInteractEvent e){
+//		if(e.getAction()==Action.RIGHT_CLICK_AIR||e.getAction()==Action.RIGHT_CLICK_BLOCK){
+//			if(!Utils.canBuild(e.getPlayer())) {
+//				e.setCancelled(true);
+//			}
+//		}
+//	}
 
 
 
-	@EventHandler
+	@EventHandler(priority = EventPriority.LOWEST)
 	public static void a(EntityDamageEvent e) {
 		if(e.getEntity().getWorld()==Utils.world)e.setCancelled(true);
 	}
