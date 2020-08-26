@@ -30,7 +30,7 @@ public class InvsManager {
 					e.player.performCommand("minigta join");
 					break;
 				case IRON_HOE:
-					e.player.teleport(Bukkit.getWorld("loup-garou").getSpawnLocation());
+					e.player.performCommand("ww join");
 					break;
 				default:
 					e.player.sendMessage("§cCette option n'est pas disponible pour le moment !");
