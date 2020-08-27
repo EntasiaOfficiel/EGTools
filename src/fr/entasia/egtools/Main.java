@@ -13,7 +13,7 @@ public class Main extends JavaPlugin{
 
 	public static Main main;
 	public static SQLConnection sqlConnection;
-	public static boolean enableDev;
+	public static boolean dev;
 
 
 
@@ -30,7 +30,7 @@ public class Main extends JavaPlugin{
 			saveDefaultConfig();
 			loadConfig();
 
-			enableDev = getConfig().getBoolean("dev", false);
+			dev = getConfig().getBoolean("dev", false);
 			if(getConfig().getString("sqluser")!=null)sqlConnection = new SQLConnection(getConfig().getString("sqluser"), "playerdata");
 
 			getCommand("egtools").setExecutor(new EGToolsCmd());

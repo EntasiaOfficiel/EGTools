@@ -57,6 +57,7 @@ public class Utils {
 	}
 
 	public static boolean saveAllMoney() {
+		if(Main.dev)return true;
 		try{
 			PreparedStatement ps;
 			Main.sqlConnection.checkConnect();
