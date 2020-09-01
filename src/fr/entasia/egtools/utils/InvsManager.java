@@ -39,19 +39,19 @@ public class InvsManager {
 		}
 	};
 
-	public static void gMenuOpen(Player p){
+	public static void gMenuOpen(Player p) {
 		Inventory inv = gMenu.createInv(6, "§7Menu §6Enta§cGames");
-		ItemStack item = new ItemStack(Material.STAINED_GLASS_PANE, 1, (byte)4);
-		for(int i : new int[]{0,8,9,17})inv.setItem(i, item);
-		item = new ItemStack(Material.STAINED_GLASS_PANE, 1, (byte)1);
-		for(int i : new int[]{19,25,29,30,32,33})inv.setItem(i, item);
-		item = new ItemStack(Material.STAINED_GLASS_PANE, 1, (byte)14);
-		inv.setItem(40,item);
-		item = new ItemStack(Material.STAINED_GLASS_PANE, 1, (byte)12);
-		inv.setItem(49,item);
+		ItemStack item = new ItemStack(Material.STAINED_GLASS_PANE, 1, (byte) 4);
+		for (int i : new int[]{0, 8, 9, 17}) inv.setItem(i, item);
+		item = new ItemStack(Material.STAINED_GLASS_PANE, 1, (byte) 1);
+		for (int i : new int[]{19, 25, 29, 30, 32, 33}) inv.setItem(i, item);
+		item = new ItemStack(Material.STAINED_GLASS_PANE, 1, (byte) 14);
+		inv.setItem(40, item);
+		item = new ItemStack(Material.STAINED_GLASS_PANE, 1, (byte) 12);
+		inv.setItem(49, item);
 
-		item = new ItemStack(Material.SKULL_ITEM,1,(short)3);
-		SkullMeta sm = (SkullMeta)item.getItemMeta();
+		item = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);
+		SkullMeta sm = (SkullMeta) item.getItemMeta();
 		sm.setDisplayName("§dStatistiques !");
 		sm.setOwner(p.getName());
 		sm.setLore(Collections.singletonList("§9Non disponible pour le moment !"));
@@ -74,7 +74,6 @@ public class InvsManager {
 		inv.setItem(46, item);
 
 
-
 		item.setType(Material.IRON_AXE);
 		meta = item.getItemMeta();
 		meta.setDisplayName("§cFFARush");
@@ -86,7 +85,8 @@ public class InvsManager {
 		meta = item.getItemMeta();
 		meta.setDisplayName("§7MiniGTA");
 		List<String> list = new ArrayList<>();
-		list.add("§6Le cèlebre jeu GTA déja porté dans Minecraft, Maintenant en mini jeu !");
+		list.add("§6Le cèlebre jeu GTA porté dans Minecraft");
+		list.add("Maintenant en mini jeu !");
 		list.add("§6Deux équipes. 8 minutes. Des armes.");
 		list.add(" ");
 		list.add("§9Développé par Stargeyt ! Merci à lui");
@@ -94,15 +94,11 @@ public class InvsManager {
 		item.setItemMeta(meta);
 		inv.setItem(23, item);
 
-
-		LocalDateTime now = LocalDateTime.now();
-		if(now.getMonthValue() >= 8 || now.getYear()>=2021 || p.getDisplayName().equalsIgnoreCase("Stargeyt") || p.getDisplayName().equalsIgnoreCase("iTrooz_")){
-			item = new ItemStack(Material.IRON_HOE);
-			meta = item.getItemMeta();
-			meta.setDisplayName("§7Loup Garou");
-			item.setItemMeta(meta);
-			inv.setItem(21,item);
-		}
+		item = new ItemStack(Material.IRON_HOE);
+		meta = item.getItemMeta();
+		meta.setDisplayName("§7Loup Garou");
+		item.setItemMeta(meta);
+		inv.setItem(21, item);
 
 		p.openInventory(inv);
 	}
