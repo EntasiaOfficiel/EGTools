@@ -2,6 +2,9 @@ package fr.entasia.egtools.utils;
 
 import fr.entasia.apis.menus.MenuClickEvent;
 import fr.entasia.apis.menus.MenuCreator;
+import fr.entasia.apis.other.ItemBuilder;
+import fr.entasia.apis.utils.ItemUtils;
+import fr.entasia.egtools.Main;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
@@ -16,16 +19,15 @@ import java.util.List;
 
 public class InvsManager {
 
-	public static MenuCreator gMenu = new MenuCreator(){
+	public static MenuCreator gMenu = new MenuCreator() {
 
 		@Override
 		public void onMenuClick(MenuClickEvent e) {
-			if(!e.inv.getName().equalsIgnoreCase("§7Menu §6Enta§cGames")) return;
-			switch(e.item.getType()) {
+			switch (e.item.getType()) {
 				case IRON_AXE:
 					e.player.performCommand("ffarush join");
 					break;
-				case GOLD_BARDING:
+				case GOLDEN_HORSE_ARMOR:
 					e.player.performCommand("minigta join");
 					break;
 				case IRON_HOE:
@@ -41,64 +43,40 @@ public class InvsManager {
 
 	public static void gMenuOpen(Player p) {
 		Inventory inv = gMenu.createInv(6, "§7Menu §6Enta§cGames");
-		ItemStack item = new ItemStack(Material.STAINED_GLASS_PANE, 1, (byte) 4);
+		ItemStack item = new ItemStack(Material.YELLOW_STAINED_GLASS_PANE);
 		for (int i : new int[]{0, 8, 9, 17}) inv.setItem(i, item);
-		item = new ItemStack(Material.STAINED_GLASS_PANE, 1, (byte) 1);
+		item = new ItemStack(Material.ORANGE_STAINED_GLASS_PANE);
 		for (int i : new int[]{19, 25, 29, 30, 32, 33}) inv.setItem(i, item);
-		item = new ItemStack(Material.STAINED_GLASS_PANE, 1, (byte) 14);
+		item = new ItemStack(Material.RED_STAINED_GLASS_PANE);
 		inv.setItem(40, item);
-		item = new ItemStack(Material.STAINED_GLASS_PANE, 1, (byte) 12);
+		item = new ItemStack(Material.LIGHT_BLUE_STAINED_GLASS_PANE);
 		inv.setItem(49, item);
 
-		item = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);
-		SkullMeta sm = (SkullMeta) item.getItemMeta();
-		sm.setDisplayName("§dStatistiques !");
-		sm.setOwner(p.getName());
-		sm.setLore(Collections.singletonList("§9Non disponible pour le moment !"));
-		item.setItemMeta(sm);
-		inv.setItem(52, item);
+		ItemBuilder builder = new ItemBuilder(Material.PLAYER_HEAD).name("§dStatistiques !").lore("§9Non disponible pour le moment !");
+		ItemUtils.placeSkullAsync(inv, 52, builder.build(), p);
 
 
-		item = new ItemStack(Material.STORAGE_MINECART);
-		ItemMeta meta = item.getItemMeta();
-		meta.setDisplayName("§bRécompense journalière");
-		meta.setLore(Collections.singletonList("§3Clique pour recevoir ta récompense journalière !"));
-		item.setItemMeta(meta);
-		inv.setItem(47, item);
+		builder = new ItemBuilder(Material.CHEST_MINECART).name("§bRécompense journalière").lore("§3Clique pour recevoir ta récompense journalière !");
+		inv.setItem(47, builder.build());
 
-		item.setType(Material.GOLD_INGOT);
-		meta = item.getItemMeta();
-		meta.setDisplayName("§eBoutique");
-		meta.setLore(Collections.singletonList("§9Non disponible pour le moment !"));
-		item.setItemMeta(meta);
-		inv.setItem(46, item);
+		builder = new ItemBuilder(Material.GOLD_INGOT).name("§eBoutique").lore("§9Non disponible pour le moment !");
+		inv.setItem(46, builder.build());
 
 
-		item.setType(Material.IRON_AXE);
-		meta = item.getItemMeta();
-		meta.setDisplayName("§cFFARush");
-		meta.setLore(Collections.singletonList("§cDu FFARush normal.. ou pas ?"));
-		item.setItemMeta(meta);
-		inv.setItem(13, item);
+		builder = new ItemBuilder(Material.IRON_AXE).name("§cFFARush").lore("§cDu FFARush normal.. ou pas ?");
+		inv.setItem(13, builder.build());
 
-		item.setType(Material.GOLD_BARDING);
-		meta = item.getItemMeta();
-		meta.setDisplayName("§7MiniGTA");
-		List<String> list = new ArrayList<>();
-		list.add("§6Le cèlebre jeu GTA porté dans Minecraft");
-		list.add("Maintenant en mini jeu !");
-		list.add("§6Deux équipes. 8 minutes. Des armes.");
-		list.add(" ");
-		list.add("§9Développé par Stargeyt ! Merci à lui");
-		meta.setLore(list);
-		item.setItemMeta(meta);
-		inv.setItem(23, item);
+		builder = new ItemBuilder(Material.GOLDEN_HORSE_ARMOR).name("§7MiniGTA").lore(
+			"§6Le cèlebre jeu GTA porté dans Minecraft",
+			"Maintenant en mini jeu !",
+			"§6Deux équipes. 8 minutes. Des armes.",
+			" ",
+			"§9Développé par Stargeyt ! Merci à lui",
+			"§cDu FFARush normal.. ou pas ?");
+		inv.setItem(23, builder.build());
 
-		item = new ItemStack(Material.IRON_HOE);
-		meta = item.getItemMeta();
-		meta.setDisplayName("§7Loup Garou");
-		item.setItemMeta(meta);
-		inv.setItem(21, item);
+		builder = new ItemBuilder(Material.IRON_HOE).name("§7Loup Garou");
+		inv.setItem(21, builder.build());
 
 		p.openInventory(inv);
 	}

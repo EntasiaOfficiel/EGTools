@@ -33,7 +33,7 @@ public class Utils {
 		meta.setDisplayName("§6Enta§cGames");
 		item.setItemMeta(meta);
 		p.getInventory().setItem(4, item);
-		item.setType(Material.COMMAND);
+		item.setType(Material.COMMAND_BLOCK);
 		meta.setDisplayName("§bCosmétiques");
 		item.setItemMeta(meta);
 		p.getInventory().setItem(7, item);
