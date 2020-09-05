@@ -60,9 +60,9 @@ public class Utils {
 		if(Main.dev)return true;
 		try{
 			PreparedStatement ps;
-			Main.sqlConnection.checkConnect();
+			Main.sql.checkConnect();
 			for(Map.Entry<UUID, Integer> e : new HashMap<>(MoneyUtils.moneyCache).entrySet()){
-				ps = Main.sqlConnection.connection.prepareStatement("UPDATE entagames set money=? where uuid=?");
+				ps = Main.sql.connection.prepareStatement("UPDATE entagames set money=? where uuid=?");
 				ps.setInt(1, e.getValue());
 				ps.setString(2, e.getKey().toString());
 				ps.execute();
@@ -71,7 +71,7 @@ public class Utils {
 			return true;
 		}catch(SQLException e){
 			e.printStackTrace();
-			Main.sqlConnection.broadcastError();
+			Main.sql.broadcastError();
 		}
 		return false;
 	}

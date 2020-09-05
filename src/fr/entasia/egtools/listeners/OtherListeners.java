@@ -72,7 +72,7 @@ public class OtherListeners implements Listener {
 	public static void onJoin(PlayerJoinEvent e){
 		e.getPlayer().setMaximumNoDamageTicks(17);
 		Utils.tpSpawn(e.getPlayer());
-		if (Main.sqlConnection.fastUpdate("INSERT IGNORE INTO entagames (uuid) VALUES (?)", e.getPlayer().getUniqueId()) == -1) {
+		if (Main.sql.fastUpdate("INSERT IGNORE INTO entagames (uuid) VALUES (?)", e.getPlayer().getUniqueId()) == -1) {
 			e.getPlayer().kickPlayer("§cErreurs lors du chargement de tes profils !");
 		}
 	}

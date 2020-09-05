@@ -14,8 +14,8 @@ public class MoneyUtils {
 		int a = moneyCache.getOrDefault(uuid, -1);
 		if(a==-1){
 			try{
-				Main.sqlConnection.checkConnect();
-				ResultSet rs = Main.sqlConnection.fastSelectUnsafe("SELECT money FROM entagames WHERE uuid = ?", uuid);
+				Main.sql.checkConnect();
+				ResultSet rs = Main.sql.fastSelectUnsafe("SELECT money FROM entagames WHERE uuid = ?", uuid);
 				if(rs.next()){
 					a = rs.getInt(1);
 					moneyCache.put(uuid, a);
@@ -23,7 +23,7 @@ public class MoneyUtils {
 				}
 			}catch(Exception e){
 				e.printStackTrace();
-				Main.sqlConnection.broadcastError();
+				Main.sql.broadcastError();
 			}
 			return -1;
 		}else return a;

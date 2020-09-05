@@ -15,11 +15,8 @@ import java.io.IOException;
 public class Main extends JavaPlugin{
 
 	public static Main main;
-	public static SQLConnection sqlConnection;
+	public static SQLConnection sql;
 	public static boolean dev;
-
-
-
 
 	public static void loadConfig() {
 		Utils.world = Bukkit.getWorld(main.getConfig().getString("world"));
@@ -35,7 +32,7 @@ public class Main extends JavaPlugin{
 			loadConfig();
 
 			dev = getConfig().getBoolean("dev", false);
-			if(getConfig().getString("sqluser")!=null)sqlConnection = new SQLConnection(getConfig().getString("sqluser"), "playerdata");
+			sql = new SQLConnection(dev).mariadb("entagames", "playerdata");
 
 			getCommand("egtools").setExecutor(new EGToolsCmd());
 			getCommand("spawn").setExecutor(new SpawnCmd());
