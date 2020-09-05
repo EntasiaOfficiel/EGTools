@@ -19,9 +19,9 @@ public class Main extends JavaPlugin{
 	public static boolean dev;
 
 	public static void loadConfig() {
-		Utils.world = Bukkit.getWorld(main.getConfig().getString("world"));
+		EGUtils.world = Bukkit.getWorld(main.getConfig().getString("world"));
 		String[] a = main.getConfig().getString("spawn").split(";");
-		Utils.spawn = new Location(Utils.world, Double.parseDouble(a[0])+0.5,Double.parseDouble(a[1])+0.5,Double.parseDouble(a[2])+0.5);
+		EGUtils.spawn = new Location(EGUtils.world, Double.parseDouble(a[0])+0.5,Double.parseDouble(a[1])+0.2,Double.parseDouble(a[2])+0.5);
 	}
 
 	@Override

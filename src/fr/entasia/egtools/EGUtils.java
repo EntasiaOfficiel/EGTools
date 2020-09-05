@@ -1,5 +1,6 @@
 package fr.entasia.egtools;
 
+import fr.entasia.apis.utils.PlayerUtils;
 import fr.entasia.egtools.utils.MoneyUtils;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
@@ -14,20 +15,19 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-@Deprecated
-public class Utils {
+public class EGUtils {
 
-	public static World world = EGUtils.world;
-	public static Location spawn = EGUtils.spawn;
+	public static World world;
+	public static Location spawn;
 
-	public static ArrayList<String> buildToggle = EGUtils.buildToggle;
+	public static ArrayList<String> buildToggle = new ArrayList<>();
 
 	public static boolean canBuild(Player p){
 		return buildToggle.contains(p.getName())&&p.getGameMode()== GameMode.CREATIVE;
 	}
 
 	public static void tpSpawn(Player p) {
-		reset(p);
+		PlayerUtils.hardReset(p);
 		p.teleport(spawn);
 		ItemStack item = new ItemStack(Material.CHEST);
 		ItemMeta meta = item.getItemMeta();
@@ -40,21 +40,6 @@ public class Utils {
 		p.getInventory().setItem(7, item);
 
 		p.setItemOnCursor(null);
-	}
-
-	public static void reset(Player p) {
-		p.getInventory().clear();
-
-
-		for(PotionEffect pe : p.getActivePotionEffects()){
-			p.removePotionEffect(pe.getType());
-		}
-		p.setGlowing(false);
-		p.setGliding(false);
-		p.setMaxHealth(20);
-		p.setHealth(20);
-		p.setLevel(0);
-		p.setFoodLevel(20);
 	}
 
 	public static boolean saveAllMoney() {
