@@ -68,11 +68,9 @@ public class InvsManager {
 
 		builder = new ItemBuilder(Material.GOLDEN_HORSE_ARMOR).name("§7MiniGTA").lore(
 			"§6Le cèlebre jeu GTA porté dans Minecraft",
-			"Maintenant en mini jeu !",
-			"§6Deux équipes. 8 minutes. Des armes.",
-			" ",
-			"§9Développé par Stargeyt ! Merci à lui",
-			"§cDu FFARush normal.. ou pas ?");
+			"§6Maintenant en mini jeu !",
+			"§6Deux équipes. 8 minutes. Des armes."
+		);
 		inv.setItem(23, builder.build());
 
 		builder = new ItemBuilder(Material.IRON_HOE).name("§7Loup Garou");
