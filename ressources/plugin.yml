@@ -3,7 +3,7 @@ author: iTrooz_
 description: Utilités pour le EntaGames
 version: 1.2.0
 main: fr.entasia.egtools.Main
-depend: [Libraries]
+depend: [Libraries, Cosmetics]
 api-version: '1.15'
 commands:
   egtools:
