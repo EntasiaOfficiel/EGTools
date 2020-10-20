@@ -1,5 +1,7 @@
 package fr.entasia.egtools.listeners;
 
+import fr.entasia.egtools.EGUtils;
+import fr.entasia.egtools.Main;
 import fr.entasia.egtools.Utils;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -21,7 +23,7 @@ public class ProtectListeners implements Listener {
 
 	@EventHandler(priority = EventPriority.LOWEST)
 	public static void a(PlayerInteractEvent e) {
-		if(!Utils.canBuild(e.getPlayer())){
+		if(!Utils.canBuild(e.getPlayer()) && e.getPlayer().getWorld().equals(EGUtils.world)){
 			e.setCancelled(true);
 		}
 	}
