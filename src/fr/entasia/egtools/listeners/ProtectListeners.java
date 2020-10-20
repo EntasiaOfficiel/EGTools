@@ -8,11 +8,19 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 
 public class ProtectListeners implements Listener {
 
 	@EventHandler(priority = EventPriority.LOWEST)
 	public static void a(BlockPlaceEvent e) {
+		if(!Utils.canBuild(e.getPlayer())){
+			e.setCancelled(true);
+		}
+	}
+
+	@EventHandler(priority = EventPriority.LOWEST)
+	public static void a(PlayerInteractEvent e) {
 		if(!Utils.canBuild(e.getPlayer())){
 			e.setCancelled(true);
 		}
