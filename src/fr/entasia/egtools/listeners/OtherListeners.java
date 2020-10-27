@@ -6,9 +6,8 @@ import fr.entasia.cosmetics.utils.CosmeticPlayer;
 import fr.entasia.cosmetics.utils.pets.CurrentPet;
 import fr.entasia.cosmetics.utils.pets.Pet;
 import fr.entasia.cosmetics.utils.pets.PetsUtils;
-
+import fr.entasia.egtools.EGUtils;
 import fr.entasia.egtools.Main;
-import fr.entasia.egtools.Utils;
 import fr.entasia.egtools.utils.InvsManager;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
@@ -67,13 +66,13 @@ public class OtherListeners implements Listener {
 
 	@EventHandler(priority = EventPriority.LOWEST)
 	public static void onQuit(PlayerJoinEvent e){
-		Utils.buildToggle.remove(e.getPlayer().getName());
+		EGUtils.buildToggle.remove(e.getPlayer().getName());
 	}
 
 	@EventHandler(priority = EventPriority.LOWEST)
 	public static void onJoin(PlayerJoinEvent e){
 		e.getPlayer().setMaximumNoDamageTicks(17);
-		Utils.tpSpawn(e.getPlayer());
+		EGUtils.tpSpawn(e.getPlayer());
 		if (Main.sql.fastUpdate("INSERT IGNORE INTO entagames (uuid) VALUES (?)", e.getPlayer().getUniqueId()) == -1) {
 			e.getPlayer().kickPlayer("§cErreurs lors du chargement de tes profils !");
 		}
@@ -90,7 +89,7 @@ public class OtherListeners implements Listener {
 						break;
 					}
 					case "§cRetour au spawn EntaGames":{
-						Utils.tpSpawn(e.getPlayer());
+						EGUtils.tpSpawn(e.getPlayer());
 						break;
 					}
                     case "§bCosmétiques":{

@@ -1,6 +1,6 @@
 package fr.entasia.egtools.commands;
 
-import fr.entasia.egtools.Utils;
+import fr.entasia.egtools.EGUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -10,7 +10,7 @@ public class SpawnCmd implements CommandExecutor {
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] arg){
-		Utils.tpSpawn((Player)sender);
+		EGUtils.tpSpawn((Player)sender);
 		return true;
 	}
 }

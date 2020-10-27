@@ -1,6 +1,6 @@
 package fr.entasia.egtools.commands;
 
-import fr.entasia.egtools.Utils;
+import fr.entasia.egtools.EGUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -15,34 +15,34 @@ public class BuildToggleCmd implements CommandExecutor {
 			if(arg.length >= 1){
 				if(arg[0].equalsIgnoreCase("list")) {
 					sender.sendMessage("§7Liste : ");
-					for(String s : Utils.buildToggle){
+					for(String s : EGUtils.buildToggle){
 						sender.sendMessage("§7 - §r"+s);
 					}
 				}else if(arg[0].equalsIgnoreCase("clear")){
-					Utils.buildToggle.clear();
+					EGUtils.buildToggle.clear();
 					sender.sendMessage("§6BuildToggle : §eTu as clear la liste !");
 				}else if(sender.hasPermission("build.buildtoggle.others")){
 					Player p = Bukkit.getPlayer(arg[0]);
 					if(p == null){
 						sender.sendMessage("§4Erreur : §cCe joueur n'existe pas !");
 					}else {
-						if (Utils.buildToggle.contains(p.getName())) {
-							Utils.buildToggle.remove(p.getName());
+						if (EGUtils.buildToggle.contains(p.getName())) {
+							EGUtils.buildToggle.remove(p.getName());
 							sender.sendMessage("§6BuildToggle : §cDésactivé §6pour §e" + p.getName());
 							p.sendMessage("§6BuildToggle : §cDésactivé §6par §e" + sender.getName());
 						} else {
-							Utils.buildToggle.add(p.getName());
+							EGUtils.buildToggle.add(p.getName());
 							sender.sendMessage("§6BuildToggle : §aActivé §6pour §e" + p.getName());
 							p.sendMessage("§6BuildToggle : §aActivé §6par §e" + sender.getName());
 						}
 					}
 				}else sender.sendMessage("§4Erreur : §cTu ne peux pas modifier le BuildToggle des autres !");
 			}else{
-				if(Utils.buildToggle.contains(sender.getName())){
-					Utils.buildToggle.remove(sender.getName());
+				if(EGUtils.buildToggle.contains(sender.getName())){
+					EGUtils.buildToggle.remove(sender.getName());
 					sender.sendMessage("§6BuildToggle : §cDésactivé");
 				}else{
-					Utils.buildToggle.add(sender.getName());
+					EGUtils.buildToggle.add(sender.getName());
 					sender.sendMessage("§6BuildToggle : §aActivé");
 				}
 			}

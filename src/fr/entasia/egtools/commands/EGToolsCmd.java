@@ -1,7 +1,7 @@
 package fr.entasia.egtools.commands;
 
+import fr.entasia.egtools.EGUtils;
 import fr.entasia.egtools.Main;
-import fr.entasia.egtools.Utils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -15,11 +15,11 @@ public class EGToolsCmd implements CommandExecutor {
 		if(p.hasPermission("plugin.egtools")){
 			if(arg.length >= 1){
 				if(arg[0].equalsIgnoreCase("setspawn")){
-					Utils.spawn = p.getLocation().getBlock().getLocation();
-					Utils.world = p.getLocation().getWorld();
+					EGUtils.spawn = p.getLocation().getBlock().getLocation();
+					EGUtils.world = p.getLocation().getWorld();
 
-					Main.main.getConfig().set("spawn", Utils.spawn.getBlockX()+";"+Utils.spawn.getBlockY()+";"+Utils.spawn.getBlockZ());
-					Main.main.getConfig().set("world", Utils.world.getName());
+					Main.main.getConfig().set("spawn", EGUtils.spawn.getBlockX()+";"+ EGUtils.spawn.getBlockY()+";"+ EGUtils.spawn.getBlockZ());
+					Main.main.getConfig().set("world", EGUtils.world.getName());
 					Main.main.saveConfig();
 					p.sendMessage("§bSpawn défini !");
 				}else if(arg[0].equalsIgnoreCase("reload")) {

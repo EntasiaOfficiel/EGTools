@@ -1,8 +1,6 @@
 package fr.entasia.egtools.listeners;
 
 import fr.entasia.egtools.EGUtils;
-import fr.entasia.egtools.Main;
-import fr.entasia.egtools.Utils;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -16,28 +14,28 @@ public class ProtectListeners implements Listener {
 
 	@EventHandler(priority = EventPriority.LOWEST)
 	public static void a(BlockPlaceEvent e) {
-		if(!Utils.canBuild(e.getPlayer())){
+		if(!EGUtils.canBuild(e.getPlayer())){
 			e.setCancelled(true);
 		}
 	}
 
 	@EventHandler(priority = EventPriority.LOWEST)
 	public static void a(PlayerInteractEvent e) {
-		if(!Utils.canBuild(e.getPlayer()) && e.getPlayer().getWorld().equals(EGUtils.world)){
+		if(e.getPlayer().getWorld()==EGUtils.world&&!EGUtils.canBuild(e.getPlayer())){
 			e.setCancelled(true);
 		}
 	}
 
 	@EventHandler(priority = EventPriority.LOWEST)
 	public static void a(BlockBreakEvent e) {
-		if(!Utils.canBuild(e.getPlayer())){
+		if(!EGUtils.canBuild(e.getPlayer())){
 			e.setCancelled(true);
 		}
 	}
 
 	@EventHandler(priority = EventPriority.LOWEST)
 	public static void a(PlayerDropItemEvent e) {
-		if(!Utils.canBuild(e.getPlayer())){
+		if(!EGUtils.canBuild(e.getPlayer())){
 			e.setCancelled(true);
 		}
 	}
@@ -55,7 +53,7 @@ public class ProtectListeners implements Listener {
 
 	@EventHandler(priority = EventPriority.LOWEST)
 	public static void a(EntityDamageEvent e) {
-		if(e.getEntity().getWorld()==Utils.world)e.setCancelled(true);
+		if(e.getEntity().getWorld()== EGUtils.world)e.setCancelled(true);
 	}
 
 }
