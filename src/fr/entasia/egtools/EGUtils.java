@@ -3,6 +3,7 @@ package fr.entasia.egtools;
 import fr.entasia.apis.utils.PlayerUtils;
 import fr.entasia.egtools.utils.MoneyUtils;
 import org.bukkit.*;
+import org.bukkit.craftbukkit.v1_15_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -27,6 +28,7 @@ public class EGUtils {
 
 	public static void tpSpawn(Player p) {
 		PlayerUtils.hardReset(p);
+		p.setScoreboard(Bukkit.getScoreboardManager().getNewScoreboard());
 		p.teleport(spawn);
 		ItemStack item = new ItemStack(Material.CHEST);
 		ItemMeta meta = item.getItemMeta();
