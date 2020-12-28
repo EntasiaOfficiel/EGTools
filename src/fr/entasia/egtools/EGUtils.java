@@ -3,7 +3,6 @@ package fr.entasia.egtools;
 import fr.entasia.apis.utils.PlayerUtils;
 import fr.entasia.egtools.utils.MoneyUtils;
 import org.bukkit.*;
-import org.bukkit.craftbukkit.v1_15_R1.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
